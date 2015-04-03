@@ -70,16 +70,16 @@ else if (left_pwm>122)
 
     ROS_INFO("DIRECTIONS %c %c",left_ascii,right_ascii);
 
-    if (left_pwm == 0) 
+    if ((left_pwm == 0)&&(right_pwm == 0))
     {
         char stop[MSG_LENGTH];
         sprintf(stop, "%c%c%c",'\x05','j','j');
         serial_port.write(stop);
-    if (right_pwm == 0) 
-        {char stop[MSG_LENGTH];
+    
+        
         sprintf(stop, "%c%c%c",'\x05','k','k');
-
-        }
+        serial_port.write(stop);
+        
     return true;
     }
 
@@ -183,4 +183,3 @@ void miniQ::setId(int id)
 {
     id_ = id;
 }
-

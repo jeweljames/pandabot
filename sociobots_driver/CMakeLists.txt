@@ -25,7 +25,9 @@ add_executable(single_minion src/single_minion_node.cpp src/miniQ.cpp src/Cereal
 
 target_link_libraries(single_minion ${catkin_LIBRARIES})
 
-#target_link_libraries(single_minion miniQ)
+
+add_executable(tf_updater src/tf_updater.cpp src/miniQ.cpp src/CerealPort.cpp)
+target_link_libraries(tf_updater ${catkin_LIBRARIES})
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination

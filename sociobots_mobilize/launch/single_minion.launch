@@ -3,6 +3,7 @@
     <!-- Run the minion node -->
     <node name="minion_node" pkg="sociobots_driver" type="single_minion" output="screen"></node>
 
+    <node name="tf_updater" pkg="sociobots_driver" type="tf_updater" output="screen"></node>
 
 	<param name="robot_description" command="$(find xacro)/xacro.py '$(find sociobots_description)/urdf/sociobots.xacro'" />
 	
@@ -30,8 +31,8 @@
 		<param name="min_linear_velocity" type="double" value="1" />
 		<param name="alpha" type="double" value="0.5" />
     	<param name="attraction_coefficient" type="double" value="0.8" />
-		<param name="goal_tolerance" type="double" value="0.20" />
-		<param name="angular_threshold" type="double" value="0.4" />
+		<param name="goal_tolerance" type="double" value="0.17" />
+		<param name="angular_threshold" type="double" value="0.9" />
     </node>
 
 

@@ -73,7 +73,7 @@ int main(int argc, char** argv)
     double angular_threshold;
 
     bool visualization;
-`    
+
     pn.param("rate", rate, 1.0);
     pn.param("in_place_angular_velocity", in_place_angular_velocity, 3.0);
     pn.param("max_linear_velocity", max_linear_velocity, 0.2);
@@ -131,7 +131,7 @@ int main(int argc, char** argv)
         double current_y = odom.pose.pose.position.y;
         
         float distance_to_be_covered = sqrt(pow(current_x-goal.pose.position.x,2)+pow(current_y-goal.pose.position.y,2));
-        ROS_INFO("Distance _left = %f", distance_to_be_covered);
+        ROS_FATAL("Distance _left = %f", distance_to_be_covered);
 
         // If we reached our target position 
         if((state == SN_MOVING || state == SN_MOVING_AS || state == SN_ROTATING || state == SN_ROTATING_AS) && (distance_to_be_covered) < goal_tolerance)

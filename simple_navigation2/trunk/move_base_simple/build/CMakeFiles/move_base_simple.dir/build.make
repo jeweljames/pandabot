@@ -35,10 +35,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple
+CMAKE_SOURCE_DIR = /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/build
+CMAKE_BINARY_DIR = /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/move_base_simple.dir/depend.make
@@ -103,17 +103,17 @@ CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o: /opt/ros/hydro/share
 CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o: /opt/ros/hydro/share/move_base_msgs/package.xml
 CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o: /opt/ros/hydro/share/angles/package.xml
 CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o: /opt/ros/hydro/share/visualization_msgs/package.xml
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/build/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/build/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o -c /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/src/move_base_simple.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -o CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o -c /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/src/move_base_simple.cpp
 
 CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/src/move_base_simple.cpp > CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -E /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/src/move_base_simple.cpp > CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.i
 
 CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/src/move_base_simple.cpp -o CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -W -Wall -Wno-unused-parameter -fno-strict-aliasing -pthread -S /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/src/move_base_simple.cpp -o CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.s
 
 CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o.requires:
 .PHONY : CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o.requires
@@ -149,6 +149,6 @@ CMakeFiles/move_base_simple.dir/clean:
 .PHONY : CMakeFiles/move_base_simple.dir/clean
 
 CMakeFiles/move_base_simple.dir/depend:
-	cd /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/build /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/build /home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/build/CMakeFiles/move_base_simple.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/build /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/build /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/build/CMakeFiles/move_base_simple.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/move_base_simple.dir/depend
 

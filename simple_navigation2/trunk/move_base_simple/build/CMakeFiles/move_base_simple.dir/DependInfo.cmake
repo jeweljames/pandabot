@@ -4,7 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/src/move_base_simple.cpp" "/home/raring/catkin_ws/src/simple_navigation2/trunk/move_base_simple/build/CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o"
+  "/home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/src/move_base_simple.cpp" "/home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/build/CMakeFiles/move_base_simple.dir/src/move_base_simple.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
