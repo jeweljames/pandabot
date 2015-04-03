@@ -100,14 +100,14 @@ else if (left_pwm>122)
     char msg[MSG_LENGTH];
 
     sprintf(msg, "%c%c%c%c%c%c%c%c%c%c%c%c",'\x05',left_dir_ascii,left_dir_ascii,'\x05',right_dir_ascii,right_dir_ascii,'\x05','l',left_ascii,'\x05', 'r',right_ascii); 
-    
+
 
     ROS_INFO("Xbee ing %s",msg);
     serial_port.write(msg);
     
     
     std::string reply;
-    try{ serial_port.readBetween(&reply,'l','r', 100); 
+    try{ serial_port.readBetween(&reply,'l','r', 600); 
 
          // sscanf(reply.c_str(), "l%x%xr",&left_ascii,&right_ascii);  
          // ROS_INFO("left= %d right= %d",left_ascii,right_ascii);

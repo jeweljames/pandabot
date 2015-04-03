@@ -75,7 +75,7 @@ int main(int argc, char** argv)
     
 	ros::Time current_time;
 	
-	ros::Rate r(0.5);
+	ros::Rate r(1);
 	while(n.ok())
 	{
 		ros::spinOnce();
@@ -98,6 +98,7 @@ int main(int argc, char** argv)
 		// First, we'll publish the transform over tf
 
 		geometry_msgs::TransformStamped odom_trans;
+		
 		odom_trans.header.stamp = current_time;
 		odom_trans.header.frame_id = "camera1";
 		odom_trans.child_frame_id = "footprint";
@@ -137,7 +138,7 @@ int main(int argc, char** argv)
 		if(!robot.setPWM(left_pwm,left_pwm/(abs(left_pwm)),right_pwm,right_pwm/(abs(right_pwm))))
 
 			{ROS_FATAL("didnt recieve response");
-				  ros::Duration(1.5).sleep();
+				  ros::Duration(0.5).sleep();
 				// ros::shutdown();
 				}
 		else{

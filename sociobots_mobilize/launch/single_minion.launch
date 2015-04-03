@@ -25,12 +25,12 @@
 
 
 <node name="move_base_simple" pkg="move_base_simple" type="move_base_simple" output="screen">
-		<param name="in_place_angular_velocity" type="double" value="3.0" />
+		<param name="in_place_angular_velocity" type="double" value="1.0" />
    		<param name="max_linear_velocity" type="double" value="255" />
 		<param name="min_linear_velocity" type="double" value="1" />
 		<param name="alpha" type="double" value="0.5" />
     	<param name="attraction_coefficient" type="double" value="0.8" />
-		<param name="goal_tolerance" type="double" value="0.10" />
+		<param name="goal_tolerance" type="double" value="0.20" />
 		<param name="angular_threshold" type="double" value="0.4" />
     </node>
 
