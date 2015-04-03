@@ -1,0 +1,20 @@
+digraph G {
+node [shape=box];
+"footprint" [label="footprint"];
+"chassis" [label="chassis"];
+"caster_wheel1" [label="caster_wheel1"];
+"caster_wheel2" [label="caster_wheel2"];
+"left_wheel" [label="left_wheel"];
+"right_wheel" [label="right_wheel"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"footprint" -> "base_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_joint" -> "chassis"
+"chassis" -> "fixed" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"fixed" -> "caster_wheel1"
+"chassis" -> "fixed2" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"fixed2" -> "caster_wheel2"
+"chassis" -> "left_wheel_hinge" [label="xyz: -0.001 0.0525 0.03 \nrpy: 0 -0 0"]
+"left_wheel_hinge" -> "left_wheel"
+"chassis" -> "right_wheel_hinge" [label="xyz: -0.001 -0.0525 0.03 \nrpy: 0 -0 0"]
+"right_wheel_hinge" -> "right_wheel"
+}

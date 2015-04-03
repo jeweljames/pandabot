@@ -1,0 +1,10 @@
+digraph G {
+"map" -> "camera1"[label="Broadcaster: /camera_broadcaster\nAverage rate: 20.155 Hz\nMost recent transform: 1427743897.987 \nBuffer length: 4.912 sec\n"];
+"footprint" -> "chassis"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.199 Hz\nMost recent transform: 1427743898.453 \nBuffer length: 4.920 sec\n"];
+"odom" -> "footprint"[label="Broadcaster: /minion_node\nAverage rate: 3.231 Hz\nMost recent transform: 1427743897.626 \nBuffer length: 4.333 sec\n"];
+"chassis" -> "caster_back_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.199 Hz\nMost recent transform: 1427743898.453 \nBuffer length: 4.920 sec\n"];
+"chassis" -> "caster_front_link"[label="Broadcaster: /robot_state_publisher\nAverage rate: 50.199 Hz\nMost recent transform: 1427743898.453 \nBuffer length: 4.920 sec\n"];
+"map" -> "odom"[label="Broadcaster: /map_broadcaster\nAverage rate: 20.154 Hz\nMost recent transform: 1427743897.965 \nBuffer length: 4.862 sec\n"];
+"chassis" -> "left_wheel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1427743897.882 \nBuffer length: 4.800 sec\n"];
+"chassis" -> "right_wheel"[label="Broadcaster: /robot_state_publisher\nAverage rate: 10.208 Hz\nMost recent transform: 1427743897.882 \nBuffer length: 4.800 sec\n"];
+}

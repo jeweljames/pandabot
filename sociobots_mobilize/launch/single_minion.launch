@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Run the minion node -->
+    <node name="minion_node" pkg="sociobots_driver" type="single_minion" output="screen"></node>
+
+
+	<param name="robot_description" command="$(find xacro)/xacro.py '$(find sociobots_description)/urdf/sociobots.xacro'" />
+	
+	<arg name="map_name" default="$(find sociobots_mobilize)/maps/arena.yaml"/>
+
+	<include file="$(find sociobots_overhead_vision)/launch/bot_markers.launch" />
+
+	<include file="$(find sociobots_control)/launch/sociobots_control.launch" />
+
+
+	<!--Map -->
+	<node pkg="map_server" type="map_server" name="map_server" output="screen" args="$(arg map_name)">
+  	
+  	</node>
+
+  	<node pkg="tf" type="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0 map odom 50" />
+  	<!-- <node pkg="tf" type="static_transform_publisher" name="odom_broadcaster" args=" 0 0 0 0 0 0 odom footprint 50" /> -->
+  	<node pkg="tf" type="static_transform_publisher" name="camera_broadcaster" args=" .75 0.45 1.61 0 3.14 0 map camera1 50" />
+
+
+
+<node name="move_base_simple" pkg="move_base_simple" type="move_base_simple" output="screen">
+		<param name="in_place_angular_velocity" type="double" value="3.0" />
+   		<param name="max_linear_velocity" type="double" value="255" />
+		<param name="min_linear_velocity" type="double" value="1" />
+		<param name="alpha" type="double" value="0.5" />
+    	<param name="attraction_coefficient" type="double" value="0.8" />
+		<param name="goal_tolerance" type="double" value="0.10" />
+		<param name="angular_threshold" type="double" value="0.4" />
+    </node>
+
+
+	<!-- Visualizer -->
+	<node name="rviz" pkg="rviz" type="rviz" /> 
+
+</launch>
