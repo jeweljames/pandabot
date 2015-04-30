@@ -50,37 +50,39 @@ bool miniQ::setPWM(int left_pwm, int left_dir, int right_pwm, int right_dir)
 {   
 
     ROS_INFO("DIRECTIONS %d %d",left_pwm,right_pwm);
-    int left_ascii = '\x65',right_ascii= '\x65',left_dir_ascii='p',right_dir_ascii='m'; 
+    int left_ascii = '\x01',right_ascii= '\x01',left_dir_ascii='p',right_dir_ascii='m'; 
 
 
-if ((left_pwm<33)&&(left_pwm>122))
-    left_ascii = (char) left_pwm;   
-else if (left_pwm<33)
-    left_ascii = (char) 34;
-else if (left_pwm>122)
-    left_ascii = (char) 122;
+if((left_dir/right_dir)==1)
+    {
+    if(abs(left_pwm)>0) left_ascii = '\x0F';
+    else left_ascii = '\x01';
 
-if ((right_pwm<33)&&(right_pwm>122))
-    right_ascii = (char) right_pwm;   
-else if (left_pwm<33)
-    right_ascii = (char) 34;
-else if (left_pwm>122)
-    right_ascii = (char) 122;
+    if(abs(right_pwm)>0) right_ascii = '\x0F';
+    else right_ascii = '\x01';
+    }
 
+if((left_dir/right_dir)==-1)
+    {
+    if(abs(left_pwm)>0) left_ascii = '\x14';
+    else left_ascii = '\x01';
+
+    if(abs(right_pwm)>0) right_ascii = '\x14';
+    else right_ascii = '\x01';
+    }
 
     ROS_INFO("DIRECTIONS %c %c",left_ascii,right_ascii);
 
-    if (left_pwm == 0) 
+    if ((left_pwm == 0)&&(right_pwm == 0))
     {
         char stop[MSG_LENGTH];
         sprintf(stop, "%c%c%c",'\x05','j','j');
         serial_port.write(stop);
-    if (right_pwm == 0) 
-        {char stop[MSG_LENGTH];
+    
         sprintf(stop, "%c%c%c",'\x05','k','k');
-
-        }
-    return true;
+        serial_port.write(stop);
+        
+        return true;
     }
 
     if(left_dir==1)
@@ -100,14 +102,14 @@ else if (left_pwm>122)
     char msg[MSG_LENGTH];
 
     sprintf(msg, "%c%c%c%c%c%c%c%c%c%c%c%c",'\x05',left_dir_ascii,left_dir_ascii,'\x05',right_dir_ascii,right_dir_ascii,'\x05','l',left_ascii,'\x05', 'r',right_ascii); 
-    
+
 
     ROS_INFO("Xbee ing %s",msg);
     serial_port.write(msg);
     
     
     std::string reply;
-    try{ serial_port.readBetween(&reply,'l','r', 100); 
+    try{ serial_port.readBetween(&reply,'l','r', 600); 
 
          // sscanf(reply.c_str(), "l%x%xr",&left_ascii,&right_ascii);  
          // ROS_INFO("left= %d right= %d",left_ascii,right_ascii);
@@ -150,9 +152,9 @@ bool miniQ::update()
     
     return true;
 }
+ 
 
-
-bool miniQ::getPositionFromCamera(float x,float y,float z,geometry_msgs::Quaternion quat)
+void miniQ::getPositionFromCamera(float x,float y,float z,geometry_msgs::Quaternion quat)
 {
     cam_x = x;
     cam_y = y;
@@ -160,8 +162,6 @@ bool miniQ::getPositionFromCamera(float x,float y,float z,geometry_msgs::Quatern
     
     cam_quat = quat;
 
-
-    return true;
 }
 
 bool miniQ::updateVelocities()
@@ -183,4 +183,3 @@ void miniQ::setId(int id)
 {
     id_ = id;
 }
-

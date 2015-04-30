@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/raring/catkin_ws/src/sociobots/simple_navigation2/trunk/move_base_simple/build/devel/setup.sh
