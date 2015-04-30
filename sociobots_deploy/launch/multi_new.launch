@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam param="list_of_ids">[1, 2, 3, 4]</rosparam>
+	<!-- <param name="robot_description" command="$(find xacro)/xacro.py '$(find sociobots_description)/urdf/sociobots.xacro'" /> -->
+
+
+    <!-- Define a list of miniQ ids -->
+
+	<arg name="map_name" default="$(find sociobots_deploy)/maps/arena.yaml"/>
+
+	<include file="$(find sociobots_overhead_vision)/launch/bot_markers.launch" />
+
+	<include file="$(find sociobots_control)/launch/sociobots_control.launch" />
+
+
+    <node name="miniq_node" pkg="sociobots_driver" type="multi_minion" output="screen"></node>
+    
+    <group ns="robot_1">
+	    <param name="tf_prefix" value="robot_1" />	
+
+	    <!-- The robot urdf for visualization -->
+	    <param name="robot_description" command="$(find xacro)/xacro.py $(find sociobots_description)/urdf/sociobots.xacro" />
+	    
+    </group>
+
+
+
+	<!--Map -->
+	<node pkg="map_server" type="map_server" name="map_server" output="screen" args="$(arg map_name)">
+  	
+  	</node>
+
+  	<node pkg="tf" type="static_transform_publisher" name="map_broadcaster" args="0 0 0 0 0 0 map odom 50" />
+  	<!-- <node pkg="tf" type="static_transform_publisher" name="odom_broadcaster" args=" 0 0 0 0 0 0 odom footprint 50" /> -->
+  	<node pkg="tf" type="static_transform_publisher" name="camera_broadcaster" args=" .75 0.45 1.61 0 3.14 0 map camera1 50" />
+
+
+</launch>

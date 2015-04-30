@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam param="list_of_ids">[1, 2, 3, 4]</rosparam>
+
+    <node name="miniq_node" pkg="sociobots_driver" type="multi_minion" output="screen"></node>
+
+    <!-- Define a list of miniQ ids -->
+
+	<arg name="map_name" default="$(find sociobots_deploy)/maps/arena.yaml"/>
+
+	<include file="$(find sociobots_overhead_vision)/launch/bot_markers.launch" />
+
+	<include file="$(find sociobots_control)/launch/sociobots_control.launch" />
+
+</launch>

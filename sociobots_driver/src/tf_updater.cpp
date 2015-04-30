@@ -17,21 +17,15 @@ miniQ robot = miniQ();
 
 void visualOdomCallback(const ar_track_alvar::AlvarMarkers::ConstPtr& marker_msg)
 {
-
-	
   for (unsigned int i = 0; i < marker_msg->markers.size(); i ++)
   {
     //check if the marker detected is the calibration marker
     if (marker_msg->markers[i].id == 0)
     {
-    
      robot.getPositionFromCamera(marker_msg->markers[i].pose.pose.position.x,marker_msg->markers[i].pose.pose.position.y,
      							marker_msg->markers[i].pose.pose.position.z, marker_msg->markers[i].pose.pose.orientation) ;
-
     }
   }
-
-
 }
 
 int main(int argc, char** argv)
@@ -58,7 +52,7 @@ int main(int argc, char** argv)
         
 	ros::Time current_time;
 	
-	ros::Rate r(4);
+	ros::Rate r(2);
 	while(n.ok())
 	{
 		ros::spinOnce();
@@ -109,7 +103,6 @@ int main(int argc, char** argv)
 		odom.twist.twist.angular.z = robot.getAngularVelocity();
 		// Publish the message
 		odom_pub.publish(odom);
-	
 		r.sleep();
 	}
 	return 0;

@@ -7,7 +7,7 @@
 
 #define MSG_LENGTH 64
 
-#define MINIQ_RATE 3.0
+#define MINIQ_RATE 1.0
 
 class miniQ
 {
@@ -116,7 +116,7 @@ public:
 	 */
 
 
-    bool getPositionFromCamera(float x,float y,float z, geometry_msgs::Quaternion quat );
+    void getPositionFromCamera(float x,float y,float z, geometry_msgs::Quaternion quat );
 
 
     bool updateVelocities();

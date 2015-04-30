@@ -20,14 +20,14 @@ include_directories(include ${catkin_INCLUDE_DIRS})
 
 
 add_executable(single_minion src/single_minion_node.cpp src/miniQ.cpp src/CerealPort.cpp)
-
-#add_library(miniQ include/sociobots_driver/miniQ.h)
-
 target_link_libraries(single_minion ${catkin_LIBRARIES})
-
 
 add_executable(tf_updater src/tf_updater.cpp src/miniQ.cpp src/CerealPort.cpp)
 target_link_libraries(tf_updater ${catkin_LIBRARIES})
+
+add_executable(multi_minion src/multi_minion.cpp src/miniQ.cpp src/CerealPort.cpp)
+target_link_libraries(multi_minion ${catkin_LIBRARIES})
+
 
 ## Mark executable scripts (Python etc.) for installation
 ## in contrast to setup.py, you can choose the destination

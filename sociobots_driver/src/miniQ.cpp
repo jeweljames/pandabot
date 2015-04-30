@@ -50,23 +50,26 @@ bool miniQ::setPWM(int left_pwm, int left_dir, int right_pwm, int right_dir)
 {   
 
     ROS_INFO("DIRECTIONS %d %d",left_pwm,right_pwm);
-    int left_ascii = '\x65',right_ascii= '\x65',left_dir_ascii='p',right_dir_ascii='m'; 
+    int left_ascii = '\x01',right_ascii= '\x01',left_dir_ascii='p',right_dir_ascii='m'; 
 
 
-if ((left_pwm<33)&&(left_pwm>122))
-    left_ascii = (char) left_pwm;   
-else if (left_pwm<33)
-    left_ascii = (char) 34;
-else if (left_pwm>122)
-    left_ascii = (char) 122;
+if((left_dir/right_dir)==1)
+    {
+    if(abs(left_pwm)>0) left_ascii = '\x0F';
+    else left_ascii = '\x01';
 
-if ((right_pwm<33)&&(right_pwm>122))
-    right_ascii = (char) right_pwm;   
-else if (left_pwm<33)
-    right_ascii = (char) 34;
-else if (left_pwm>122)
-    right_ascii = (char) 122;
+    if(abs(right_pwm)>0) right_ascii = '\x0F';
+    else right_ascii = '\x01';
+    }
 
+if((left_dir/right_dir)==-1)
+    {
+    if(abs(left_pwm)>0) left_ascii = '\x14';
+    else left_ascii = '\x01';
+
+    if(abs(right_pwm)>0) right_ascii = '\x14';
+    else right_ascii = '\x01';
+    }
 
     ROS_INFO("DIRECTIONS %c %c",left_ascii,right_ascii);
 
@@ -76,11 +79,10 @@ else if (left_pwm>122)
         sprintf(stop, "%c%c%c",'\x05','j','j');
         serial_port.write(stop);
     
-        
         sprintf(stop, "%c%c%c",'\x05','k','k');
         serial_port.write(stop);
         
-    return true;
+        return true;
     }
 
     if(left_dir==1)
@@ -150,9 +152,9 @@ bool miniQ::update()
     
     return true;
 }
+ 
 
-
-bool miniQ::getPositionFromCamera(float x,float y,float z,geometry_msgs::Quaternion quat)
+void miniQ::getPositionFromCamera(float x,float y,float z,geometry_msgs::Quaternion quat)
 {
     cam_x = x;
     cam_y = y;
@@ -160,8 +162,6 @@ bool miniQ::getPositionFromCamera(float x,float y,float z,geometry_msgs::Quatern
     
     cam_quat = quat;
 
-
-    return true;
 }
 
 bool miniQ::updateVelocities()

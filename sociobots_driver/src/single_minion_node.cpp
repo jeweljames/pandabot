@@ -26,9 +26,7 @@ int main(int argc, char** argv)
 	ros::init(argc, argv, "miniq_node");
 
 	ROS_INFO("miniQ for ROS - Single robot version.");
-
 	float left_pwm, right_pwm;
-
    	ros::NodeHandle n;
 	ros::NodeHandle pn("~");
     
@@ -48,13 +46,9 @@ int main(int argc, char** argv)
 		ROS_BREAK();
 	}
 	ROS_INFO("miniQ -- Successfully connected to sociobots minion!");
-    
     // ros::Duration(0.5).sleep();
-	
-    
 	ros::Time current_time;
-	
-	ros::Rate r(0.5);
+	ros::Rate r(1);
 	while(n.ok())
 	{
 		ros::spinOnce();
@@ -66,14 +60,14 @@ int main(int argc, char** argv)
 		
 		ROS_INFO("Received  %f and %f",odom.twist.twist.linear.x,odom.twist.twist.angular.z);		
 
-		left_pwm = (odom.twist.twist.linear.x - odom.twist.twist.angular.z)*(WHEEL_SEPARATION/2) *8 ;
-		right_pwm = (odom.twist.twist.linear.x + odom.twist.twist.angular.z)*(WHEEL_SEPARATION/2)*8;
+		left_pwm = (odom.twist.twist.linear.x - odom.twist.twist.angular.z)*(WHEEL_SEPARATION/2) *10 ;
+		right_pwm = (odom.twist.twist.linear.x + odom.twist.twist.angular.z)*(WHEEL_SEPARATION/2)*10;
 
 		ROS_INFO("Sending %f and %f",left_pwm,right_pwm);
 		
 		if(!robot.setPWM(left_pwm,left_pwm/(abs(left_pwm)),right_pwm,right_pwm/(abs(right_pwm))))
 
-			{ROS_FATAL("didnt recieve response");
+			{ROS_WARN("didnt recieve response");
 				  ros::Duration(0.5).sleep();
 				// ros::shutdown();
 				}
